@@ -1,6 +1,6 @@
 import express from "express";
 
-const PORT = 3000;
+const PORT = 8888;
 
 const counterEx = () => {
   let count = 0;
