@@ -30,7 +30,9 @@ const app = express();
 app.use(express.json());
 
 app.post("/users", (req, res) => {
-  res.json(req.body);
+  const count = counter();
+  users[count] = { id: count, ...req.body };
+  res.status(201).json(users[count]);
 });
 
 app.get("/users", (req, res) => {
@@ -40,5 +42,17 @@ app.get("/users", (req, res) => {
 app.get("/users/:id", (req, res) => {
   res.json(users[req.params.id]);
 });
+
+app.put("/users/:id", (req, res) => {
+  users[req.params.id] = { id: req.params.id, ...req.body };
+  res.json(users[req.params.id]);
+});
+
+app.delete("/users/:id", (req, res) => {
+  delete users[req.params.id];
+  res.send(true);
+});
+
+export default app;
 
 app.listen(PORT);

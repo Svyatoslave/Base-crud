@@ -1,0 +1,8 @@
+{
+    "rootDir": ".",
+    "testEnvironment": "node",
+    "testMatch": [ "**/?(*.)+(e2e-spec).js"],
+    "coveragePathIgnorePatterns": [
+        "/node_modules/"
+    ]
+}
